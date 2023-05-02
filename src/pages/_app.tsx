@@ -19,6 +19,16 @@ const client = createClient({
 			options: {
 				apiKey: process.env.NEXT_PUBLIC_MAGIC_API_KEY as string,
 				isDarkMode: true,
+				/* Make sure to enable OAuth options from magic dashboard */
+				oauthOptions: {
+					providers: ["google", "facebook", "twitter", "discord"],
+				},
+				magicSdkConfiguration: {
+					network: {
+						rpcUrl: "https://eth.public-rpc.com",
+						chainId: 1,
+					},
+				},
 			},
 		}),
 	],
