@@ -25,7 +25,7 @@ const client = createClient({
 				},
 				magicSdkConfiguration: {
 					network: {
-						rpcUrl: "https://eth.public-rpc.com",
+						rpcUrl: "https://rpc.ankr.com/eth",
 						chainId: 1,
 					},
 				},
