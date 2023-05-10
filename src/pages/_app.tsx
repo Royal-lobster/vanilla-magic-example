@@ -1,18 +1,18 @@
 import "@/styles/globals.css";
 import { MagicAuthConnector } from "@everipedia/wagmi-magic-connector";
 import type { AppProps } from "next/app";
-import { WagmiConfig, configureChains, createClient, mainnet } from "wagmi";
+import { WagmiConfig, configureChains, createConfig, mainnet } from "wagmi";
 import { publicProvider } from "wagmi/providers/public";
 
-const { chains, provider, webSocketProvider } = configureChains(
+const { chains, publicClient, webSocketPublicClient } = configureChains(
   [mainnet],
   [publicProvider()]
 );
 
-const client = createClient({
+const config = createConfig({
   autoConnect: true,
-  provider,
-  webSocketProvider,
+  publicClient,
+  webSocketPublicClient,
   connectors: [
     new MagicAuthConnector({
       chains,
@@ -36,7 +36,7 @@ const client = createClient({
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <WagmiConfig client={client}>
+    <WagmiConfig config={config}>
       <Component {...pageProps} />
     </WagmiConfig>
   );
