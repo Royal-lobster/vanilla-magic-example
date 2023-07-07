@@ -1,5 +1,5 @@
 import "@/styles/globals.css";
-import { MagicAuthConnector } from "@everipedia/wagmi-magic-connector";
+import { MagicAuthConnector } from "@magiclabs/wagmi-connector";
 import type { AppProps } from "next/app";
 import { WagmiConfig, configureChains, createConfig, mainnet } from "wagmi";
 import { publicProvider } from "wagmi/providers/public";
