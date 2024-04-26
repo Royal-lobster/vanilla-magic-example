@@ -1,9 +1,5 @@
 import { Inter } from "next/font/google";
-import dynamic from "next/dynamic";
-
-const ConnectButton = dynamic(() => import("@/components/ConnectButton"), {
-  ssr: false,
-});
+import ConnectButton from "../components/ConnectButton";
 
 const inter = Inter({ subsets: ["latin"] });
 
