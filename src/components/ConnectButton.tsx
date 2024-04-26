@@ -4,7 +4,7 @@ import React from "react";
 import { useAccount, useConnect, useDisconnect } from "wagmi";
 
 const ConnectButton = () => {
-  const { connect, connectors, isLoading, isIdle } = useConnect();
+  const { connect, connectors, status, isIdle } = useConnect();
   const { address, isConnected } = useAccount();
   const { disconnect } = useDisconnect();
   return (
@@ -14,7 +14,7 @@ const ConnectButton = () => {
           onClick={() => connect({ connector: connectors[0] })}
           className="bg-[#6452f6] rounded-full mt-4 text-white py-2 px-10"
         >
-          {isLoading ? "Loading..." : isIdle ? "Connect" : "Connecting..."}
+          {status === "pending" ? "Loading..." : isIdle ? "Connect" : "Connecting..."}
         </button>
       ) : (
         <div className="flex flex-col items-center justify-center">
