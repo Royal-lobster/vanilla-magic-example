@@ -6,5 +6,14 @@ export default function App({
 }: {
 	children: React.ReactNode;
 }) {
-	return <ClientProviders>{children}</ClientProviders>;
+	return (
+		<html lang="en">
+			<head>
+				<title>Wagmi Magic Connector Example - Next js App Dir</title>
+			</head>
+			<body className="bg-neutral-800">
+				<ClientProviders>{children}</ClientProviders>
+			</body>
+		</html>
+	);
 }
