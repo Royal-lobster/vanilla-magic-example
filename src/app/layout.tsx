@@ -1,15 +1,10 @@
-import { config } from "@/lib/wagmi.config";
+import { ClientProviders } from "@/components/ClientProviders";
 import "@/styles/globals.css";
-import React from "react";
-import { WagmiProvider } from "wagmi";
 
-
-export default function App({ children }: {
-    children: React.ReactNode
+export default function App({
+	children,
+}: {
+	children: React.ReactNode;
 }) {
-  return (
-    <WagmiProvider config={config}>
-        {children}
-    </WagmiProvider>
-  );
+	return <ClientProviders>{children}</ClientProviders>;
 }
